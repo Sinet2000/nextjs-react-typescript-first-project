@@ -1,1 +1,1 @@
-# My first project on NextJS
+# My first project on NextJS (React + TypeScript)
