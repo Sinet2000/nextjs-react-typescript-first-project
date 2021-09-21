@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Htag, Button, Ptag, Badge, Rating } from '../components';
+import { withLayout } from '../layout/Layout';
 
-export default function Home(): JSX.Element {
+function Home(): JSX.Element {
 	const [rating, setRating] = useState<number>(3);
-	const [counter, setCounter] = useState<number>(0);
-
-	useEffect(() => {
-		if (counter > 0) {
-			console.log('counter', counter);
-		}
-	});
 
 	// useEffect(() => {}, []); in such manner it will be executed 1 time on mount
 	//useEffect(() => {}); by this way it will be executed on evevry render!!
@@ -18,7 +12,6 @@ export default function Home(): JSX.Element {
 	return (
 		<>
 			<Htag tag='h1'>Text</Htag>
-			<Button appearance='primary' arrow='right' onClick={() => setCounter(x => x + 1)}>Appearance {counter}</Button>
 			<Button appearance='ghost' arrow='right'>Appearance</Button>
 			<Ptag size='m'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non praesentium deleniti placeat at corporis tempore nostrum recusandae ratione laudantium ex ipsam voluptatibus, labore officiis dolor expedita fugit sed et? Odit!</Ptag>
 			<Badge size='s' color='ghost'>Lorem</Badge>
@@ -34,3 +27,5 @@ export default function Home(): JSX.Element {
 		</>
 	);
 }
+
+export default withLayout(Home);
