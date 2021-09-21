@@ -2,3 +2,4 @@ export * from './Htag/Htag';
 export * from './Button/Button';
 export * from './Ptag/Ptag';
 export * from './Badge/Badge';
+export * from './Rating/Rating';
