@@ -12,6 +12,7 @@ import { IReviewForm, IReviewSentResponse } from './ReviewForm.interface';
 import axios from 'axios';
 import { API } from '../../helpers/api';
 import { useState } from 'react';
+import { ApiError } from 'next/dist/server/api-utils';
 
 export const ReviewForm = ({ productId, isOpened, className, ...props }: ReviewFormProps): JSX.Element => {
 	const { register, control, handleSubmit, formState: { errors }, reset, clearErrors } = useForm<IReviewForm>();
@@ -28,7 +29,7 @@ export const ReviewForm = ({ productId, isOpened, className, ...props }: ReviewF
 				setError('Something went wrong');
 			}
 		} catch (e) {
-			setError(e.message);
+			setError((e as Error).message);
 		}
 	};
 
